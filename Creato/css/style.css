@@ -1,0 +1,953 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+/* font-family: 'Roboto', sans-serif; */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+/*
+CORES DA LOGO
+ vermelho > #991d1d
+ cinza > #616161
+*/
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	overflow-x: hidden;
+	font-size: 10px;
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	scroll-behavior: smooth;
+}
+
+a {
+	text-decoration: none;
+	line-height: 42px;
+	font-display: block;
+	font-family: "Futura-LT-W05-Light";
+    src: url("//static.parastorage.com/services/santa-resources/resources/viewer/user-site-fonts/fonts/Futura_Complete/v1/FuturaLTW05-LightCondensed.woff2") format("woff2"),
+    url("//static.parastorage.com/services/santa-resources/resources/viewer/user-site-fonts/fonts/Futura_Complete/v1/FuturaLTW05-LightCondensed.woff") format("woff");
+}
+ul{
+	list-style: none;
+}
+
+#hero .container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 0.05rem;
+}
+
+.section-title {
+	font-size: 4rem;
+	font-weight: 300;
+	color: black;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+}
+
+.section-title span {
+	color: #991d1d;
+}
+
+.cta {
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 2px solid #991d1d;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+
+.cta:hover {
+	color: white;
+	background-color: #991d1d;
+}
+
+.brand h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	color: white;
+}
+
+.brand h1 span {
+	color: #991d1d;
+}
+
+/* HEADER SECTION */
+.img-logo {
+	width: 20vh;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+#header {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+}
+
+#header .header {
+	min-height: 8vh;
+	background-color: #f4f4f4;
+	transition: 0.3s ease background-color;
+}
+
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: #f4f4f4;
+	/* background-color: rgb(31, 30, 30); */
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow-x: hidden;
+	transition: 0.5s ease left;
+}
+
+#header .nav-list ul.active {
+	left: 0%;
+}
+
+#header .nav-list ul a {
+	font-size: 2.5rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	text-decoration: none;
+	color: black;
+	text-transform: uppercase;
+	padding: 20px;
+	display: block;
+}
+
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: #e8e8e8;
+	/* color: rgba(255, 246, 240, 0.021); */
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: 0.3s ease letter-spacing;
+}
+
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+
+#header .nav-list ul li:hover a {
+	color: #991d1d;
+}
+
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid #616161;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(0.8);
+	margin-right: 20px;
+}
+
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid #616161;
+	animation: hamburger_puls 1s ease infinite;
+}
+
+#header .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: #616161;
+	z-index: -1;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: #616161;
+	transition: 0.3s ease;
+	transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+	top: 8px;
+}
+
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+
+/* FIM DA HEADER SECTION */
+
+/* HERO SECTION */
+#hero {
+	background-image: url(/img/background.jpg);
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+}
+
+#hero::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.7;
+	z-index: -1;
+}
+
+#hero .hero {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
+}
+
+#hero h1 {
+	display: block;
+	width: fit-content;
+	font-size: 3rem;
+	position: relative;
+	color: transparent;
+	animation: text_reveal 0.5s ease forwards;
+	animation-delay: 1s;
+}
+
+#hero h1:nth-child(1) {
+	animation-delay: 1s;
+}
+
+#hero h1:nth-child(2) {
+	animation-delay: 2s;
+}
+
+#hero h1:nth-child(3) {
+	animation: text_reveal_name 0.5s ease forwards;
+	animation-delay: 3s;
+}
+
+#hero h1 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: #991d1d;
+	animation: text_reveal_box 1s ease;
+	animation-delay: 0.5s;
+}
+
+#hero h1:nth-child(1) span {
+	animation-delay: 0.5s;
+}
+
+#hero h1:nth-child(2) span {
+	animation-delay: 1.5s;
+}
+
+#hero h1:nth-child(3) span {
+	animation-delay: 2.5s;
+}
+
+/* FIM HERO SECTION */
+
+/* TECNAM SECTION */
+#tecnam .tecnam {
+	flex-direction: column;
+	text-align: center;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+
+#tecnam .tecnam-top {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+#tecnam .tecnam-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 50px;
+}
+
+#tecnam .tecnam-item {
+	flex-basis: 80%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	padding: 30px;
+	border-radius: 10px;
+	background-image: url(/img/tecnam.jpg);
+	background-size: cover;
+	margin: 10px 5%;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+#tecnam .tecnam-item::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	opacity: 0.9;
+	z-index: -1;
+}
+
+
+#tecnam .tecnam-item h2 {
+	font-size: 2rem;
+	color: white;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+#tecnam .tecnam-item p {
+	color: white;
+	text-align: left;
+}
+
+/* FIM TECNAM SECTION */
+
+/* CATALOG SECTION */
+
+.slide-container {
+	max-width: 1300px;
+	width: 100%;
+	padding: 40px 0;
+}
+
+.slide-content {
+	margin: 0 40px;
+	overflow: hidden;
+	border-radius: 25px;
+}
+
+.card {
+	border-radius: 25px;
+	background-color: white;
+}
+
+.image-content,
+.card-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px 14px;
+}
+
+.image-content {
+	position: relative;
+	row-gap: 5px;
+	padding: 25px 0;
+}
+
+.overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #f0f0f0;
+	border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: -40px;
+	height: 40px;
+	width: 40px;
+	background-color: #f0f0f0;
+
+}
+
+.overlay::after {
+	border-radius: 0 25px 0 0;
+	background-color: #FFF;
+}
+
+.card-image {
+	position: relative;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	background: #FFF;
+	padding: 3px;
+}
+
+.card-image .card-img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 4px solid #991d1d;
+}
+
+.name {
+	font-size: 18px;
+	font-weight: 500;
+	color: #333;
+}
+
+.description {
+	font-size: 14px;
+	color: #707070;
+	text-align: center;
+}
+
+.button {
+	border: none;
+	font-size: 16px;
+	color: #FFF;
+	padding: 8px 16px;
+	background-color: #991d1d;
+	border-radius: 6px;
+	margin: 14px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.button:hover {
+	background: #616161;
+}
+
+.swiper-navBtn {
+	color: #a33333;
+	transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover {
+	color: #991d1d;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+	font-size: 35px;
+}
+
+.swiper-button-next {
+	right: 0;
+}
+
+.swiper-button-prev {
+	left: 0;
+}
+
+.swiper-pagination-bullet {
+	background-color: #a33333;
+	opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: #991d1d;
+}
+
+@media screen and (max-width: 768px) {
+	.slide-content {
+		margin: 0 10px;
+	}
+
+	.swiper-navBtn {
+		display: none;
+	}
+}
+
+/* FIM CATALOG SECTION */
+
+/* ABOUT SECTION */
+
+.about{
+	height: 90vh;
+	width: 100%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.about .main img{
+	width: 580px;
+	max-width: 100%;
+	height: auto;
+	padding: 0 10px;
+}
+
+.all-text{
+	width: 600px;
+	max-width: 100%;
+	padding: 0 10px;
+}
+
+.main{
+	width: 1290px;
+	max-width: 95%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.all-text h4{
+	font-size: 18px;
+	color: #616161;
+	letter-spacing: 1px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.all-text h1{
+	font-size: 40px;
+	color: #991d1d;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.all-text p{
+	font-size: 16px;
+	color: #616161;
+	line-height: 30px;
+	margin-bottom: 35px;
+}
+
+@media screen and (max-width: 1250px){
+	.about{
+		width: 100%;
+		height: auto;
+		padding: 60px 0;
+	}
+
+	.all-text{
+		text-align: center;
+		margin-top: 40px;
+	}
+}
+
+@media screen and (max-width: 650px){
+	.about .main img{
+		margin-bottom: 35px;
+	}
+	.all-text h1{
+		font-size: 30px;
+		margin-bottom: 20px;
+	}
+}
+
+
+/* FIM ABOUT SECTION */
+
+/* CONTACT SECTION */
+
+#contact .contact {
+	flex-direction: column;
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 90%;
+}
+
+#contact .contact-items {
+	width: 100%;
+}
+
+#contact .contact-item {
+	width: 80%;
+	padding: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 30px;
+	margin: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0px 0px 18px 0 #0000002c;
+	transition: 0.3s ease box-shadow;
+}
+
+#contact .contact-item:hover {
+	box-shadow: 0px 0px 5px 0 #0000002c;
+}
+
+#contact .icon {
+	width: 70px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+#contact .contact-info h1 {
+	font-size: 2.5rem;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+#contact .contact-info h2 {
+	font-size: 1.3rem;
+	line-height: 2rem;
+	font-weight: 500;
+}
+
+/* FIM CONTACT SECTION */
+
+/* FOOTER */
+
+.footer {
+	width: 100%;
+	background-color: #0a141d;
+}
+
+.footer .grupo-1 {
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 50px;
+	padding: 45px 0px;
+}
+
+.footer .grupo-1 .box figure {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer .grupo-1 .box figure img {
+	width: 250px;
+}
+
+.footer .grupo-1 .box h2 {
+	color: #fff;
+	margin-bottom: 25px;
+	font-size: 20px;
+}
+
+.footer .grupo-1 .red-social a {
+	display: inline-block;
+	text-decoration: none;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	color: #fff;
+	margin-right: 10px;
+	background-color: #0d2033;
+	text-align: center;
+	transition: all 300ms ease;
+}
+
+.footer .grupo-1 .red-social a:hover {
+	color: #991d1d;
+}
+
+.footer .grupo-2 {
+	background-color: #0a1a2a;
+	padding: 15px 10px;
+	text-align: center;
+	color: #fff;
+}
+
+.footer .grupo-2 small {
+	font-size: 15px;
+}
+
+
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #991d1d;
+	padding-left: 8px;
+}
+
+@media(max-width: 767px){
+	.footer-col{
+	  width: 50%;
+	  margin-bottom: 30px;
+  }
+  }
+  @media(max-width: 574px){
+	.footer-col{
+	  width: 100%;
+  }
+  }
+
+@media screen and (max-width:800px) {
+	.footer .grupo-1 {
+		width: 90%;
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 30px;
+		padding: 35px 0px;
+	}
+}
+
+/* FIM FOOTER */
+
+
+/* KEYFRAMES */
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
+
+@keyframes text_reveal_box {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+
+@keyframes text_reveal {
+	100% {
+		color: white;
+	}
+}
+
+@keyframes text_reveal_name {
+	100% {
+		color: #991d1d;
+		font-weight: 500;
+	}
+}
+
+/* FIM KEYFRAMES */
+
+/* MEDIA QUERY FOR TABLET */
+@media only screen and (min-width: 768px) {
+	.cta {
+		font-size: 2.5rem;
+		padding: 20px 60px;
+	}
+
+	h1.section-title {
+		font-size: 6rem;
+	}
+
+	/* HERO */
+	#hero h1 {
+		font-size: 5.5rem;
+	}
+
+	/* FIM HERO */
+
+	/* TECNAM SECTION */
+	#tecnam .tecnam-bottom .tecnam-item {
+		flex-basis: 45%;
+		margin: 2.5%;
+	}
+
+	/* FIM TECNAM SECTION */
+
+	/* CONTACT  */
+	#contact .contact {
+		flex-direction: column;
+		padding: 100px 0;
+		align-items: center;
+		justify-content: center;
+		min-width: 20vh;
+	}
+
+	#contact .contact-items {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		margin: 0;
+	}
+
+	#contact .contact-item {
+		/* width: 30%; */
+		margin: 20px;
+		flex-direction: row;
+	}
+
+	#contact .contact-item .icon {
+		height: 100px;
+		width: 100px;
+	}
+
+	#contact .contact-item .icon img {
+		object-fit: contain;
+	}
+
+	#contact .contact-item .contact-info {
+		width: 100%;
+		text-align: left;
+		padding-left: 20px;
+	}
+
+	/* FIM CONTACT  */
+}
+
+/* FIM MEDIA QUERY FOR TABLET */
+
+/* MEDIA QUERY FOR DESKTOP */
+@media only screen and (min-width: 1200px) {
+
+	/* header */
+	#header .hamburger {
+		display: none;
+	}
+
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+
+
+	#header .nav-list ul li {
+		display: inline-block;
+	}
+
+	#header .nav-list ul li a {
+		font-size: 1.8rem;
+	}
+
+	#header .nav-list ul a:after {
+		display: none;
+	}
+
+	/* End header */
+
+	#tecnam .tecnam-bottom .tecnam-item {
+		flex-basis: 22%;
+		margin: 1.5%;
+	}
+}
+
+/* FIM MEDIA QUERY FOR DESKTOP*/
+
+#link-topo {
+	position: fixed;
+	right: 3rem;
+	bottom: 3rem;
+	width: 3rem;
+	height: 3rem;
+	background: #333333;
+	background: -webkit-linear-gradient(to top, #dd1818, #333333);
+	background: linear-gradient(to top, #dd1818, #333333);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	border-radius: .3rem;
+	box-shadow: 0 0.1rem 0.6rem #00000009;
+}
